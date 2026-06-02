@@ -77,7 +77,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-36 pb-16 lg:pt-44">
         <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection>
             <span className="eyebrow mb-6">Our story</span>
             <h1 className="max-w-4xl font-display text-5xl font-light leading-[0.98] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
@@ -98,7 +98,7 @@ export default function AboutPage() {
 
       {/* Origin */}
       <section className="relative py-20 lg:py-28">
-        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="mx-auto max-w-352 px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-14 lg:grid-cols-12">
             <AnimatedSection className="lg:col-span-7">
               <h2 className="mb-8 font-display text-3xl font-light tracking-tight text-ink-900 sm:text-4xl">
@@ -114,21 +114,25 @@ export default function AboutPage() {
                 </p>
                 <p>
                   The agencies they could find were too expensive, too
-                  impersonal, or shipped cookie-cutter templates that didn&apos;t
-                  represent their brand at all. We knew there was a better way —
-                  one that paired real technical craft with genuine care for each
-                  client&apos;s story.
+                  impersonal, or shipped cookie-cutter templates that
+                  didn&apos;t represent their brand at all. We knew there was a
+                  better way — one that paired real technical craft with genuine
+                  care for each client&apos;s story.
                 </p>
                 <p>
                   That&apos;s CSL Vanguard. The name says it: we&apos;re here to
-                  be at the front, leading the charge for the people who refuse to
-                  settle for average — without pretending to be something
+                  be at the front, leading the charge for the people who refuse
+                  to settle for average — without pretending to be something
                   we&apos;re not.
                 </p>
               </div>
             </AnimatedSection>
 
-            <AnimatedSection direction="right" delay={0.15} className="lg:col-span-5">
+            <AnimatedSection
+              direction="right"
+              delay={0.15}
+              className="lg:col-span-5"
+            >
               <div className="border border-ink-900/15 bg-paper-50 p-10">
                 <span className="eyebrow mb-6">Our mission</span>
                 <p className="font-display text-2xl font-light leading-snug tracking-tight text-ink-900">
@@ -148,7 +152,7 @@ export default function AboutPage() {
       {/* Founders */}
       <section className="relative bg-paper-50 py-20 lg:py-28">
         <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-14 max-w-2xl">
             <span className="eyebrow mb-5">The founders</span>
             <h2 className="font-display text-4xl font-light tracking-tight text-ink-900 sm:text-5xl">
@@ -222,7 +226,7 @@ export default function AboutPage() {
 
       {/* Timeline */}
       <section className="relative py-20 lg:py-28">
-        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-14 max-w-2xl">
             <span className="eyebrow mb-5">The journey</span>
             <h2 className="font-display text-4xl font-light tracking-tight text-ink-900 sm:text-5xl">
@@ -252,8 +256,11 @@ export default function AboutPage() {
 
       {/* Values — dark anchor */}
       <section className="relative overflow-hidden bg-ink-900 py-20 text-paper-100 lg:py-28">
-        <div className="absolute inset-0 grid-lines-dark opacity-60" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div
+          className="absolute inset-0 grid-lines-dark opacity-60"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-14 max-w-2xl">
             <span
               className="eyebrow mb-5"

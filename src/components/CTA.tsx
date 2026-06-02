@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function CTA() {
   return (
     <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="mx-auto max-w-352 px-6 lg:px-10">
         <AnimatedSection>
           <div className="relative overflow-hidden bg-cobalt-600 px-8 py-16 text-paper-50 sm:px-14 sm:py-20 lg:px-20 lg:py-24">
             <div

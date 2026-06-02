@@ -50,7 +50,7 @@ export default function Navbar() {
             : "border-b border-transparent bg-transparent"
         }`}
       >
-        <nav className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <nav className="mx-auto max-w-352 px-6 lg:px-10">
           <div className="flex h-20 items-center justify-between">
             <Link href="/" className="group flex items-center gap-3">
               <Mark />
@@ -104,7 +104,11 @@ export default function Navbar() {
               aria-label="Toggle menu"
               className="flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 md:hidden"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </nav>
@@ -140,7 +144,9 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={`flex items-baseline gap-4 border-b border-paper-300 py-4 ${
-                        pathname === link.href ? "text-cobalt-600" : "text-ink-900"
+                        pathname === link.href
+                          ? "text-cobalt-600"
+                          : "text-ink-900"
                       }`}
                     >
                       <span className="font-mono text-xs text-ink-400">

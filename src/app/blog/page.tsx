@@ -22,7 +22,7 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-36 pb-12 lg:pt-44">
         <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection>
             <span className="eyebrow mb-6">The journal</span>
             <h1 className="max-w-4xl font-display text-5xl font-light leading-[0.98] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
@@ -41,7 +41,7 @@ export default function BlogPage() {
       {/* Featured */}
       {active === "All" && (
         <section className="relative py-8">
-          <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+          <div className="mx-auto max-w-352 px-6 lg:px-10">
             <AnimatedSection>
               <Link
                 href={`/blog/${featured.slug}`}
@@ -86,7 +86,7 @@ export default function BlogPage() {
 
       {/* Filter + grid */}
       <section className="relative py-12 lg:py-16">
-        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-10 flex flex-wrap gap-2 border-y border-ink-900/15 py-5">
             {categories.map((c) => (
               <button

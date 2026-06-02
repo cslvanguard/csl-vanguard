@@ -1,7 +1,14 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
-import { Gauge, Hand, FileCode2, Wallet, MessagesSquare, Sparkles } from "lucide-react";
+import {
+  Gauge,
+  Hand,
+  FileCode2,
+  Wallet,
+  MessagesSquare,
+  Sparkles,
+} from "lucide-react";
 
 const features = [
   {
@@ -46,7 +53,7 @@ export default function Features() {
   return (
     <section className="relative bg-paper-50 py-24 lg:py-32">
       <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
-      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-352 px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <AnimatedSection className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">

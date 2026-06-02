@@ -32,7 +32,7 @@ export default function TechStack() {
       id="trust"
       className="relative overflow-hidden border-y border-paper-300 bg-paper-50 py-14"
     >
-      <div className="mx-auto mb-10 max-w-[88rem] px-6 lg:px-10">
+      <div className="mx-auto mb-10 max-w-352 px-6 lg:px-10">
         <AnimatedSection>
           <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">
             What we do — and the tools we trust to do it

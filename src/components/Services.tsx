@@ -48,7 +48,7 @@ export default function Services() {
 
   return (
     <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="mx-auto max-w-352 px-6 lg:px-10">
         <AnimatedSection className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-8">
             <span className="eyebrow mb-5">What we do</span>
@@ -60,8 +60,8 @@ export default function Services() {
             </h2>
           </div>
           <p className="text-ink-600 lg:col-span-4">
-            Whether you&apos;re starting from nothing or salvaging something that
-            broke, there&apos;s a path here for you. Pick one — or let us
+            Whether you&apos;re starting from nothing or salvaging something
+            that broke, there&apos;s a path here for you. Pick one — or let us
             recommend the right mix.
           </p>
         </AnimatedSection>

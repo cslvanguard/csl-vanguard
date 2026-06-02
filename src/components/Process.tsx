@@ -32,15 +32,21 @@ const steps = [
 export default function Process() {
   return (
     <section className="relative overflow-hidden bg-ink-900 py-24 text-paper-100 lg:py-32">
-      <div className="absolute inset-0 grid-lines-dark opacity-70" aria-hidden />
+      <div
+        className="absolute inset-0 grid-lines-dark opacity-70"
+        aria-hidden
+      />
       <div
         className="absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-cobalt-600/20 blur-[130px]"
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-352 px-6 lg:px-10">
         <AnimatedSection className="mb-16 max-w-3xl">
-          <span className="eyebrow mb-5" style={{ color: "var(--color-paper-300)" }}>
+          <span
+            className="eyebrow mb-5"
+            style={{ color: "var(--color-paper-300)" }}
+          >
             How we work
           </span>
           <h2 className="font-display text-4xl font-light leading-[1.05] tracking-tight text-paper-50 sm:text-5xl lg:text-6xl">

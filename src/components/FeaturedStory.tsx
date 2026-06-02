@@ -7,7 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function FeaturedStory() {
   return (
     <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="mx-auto max-w-352 px-6 lg:px-10">
         <AnimatedSection>
           <div className="grid grid-cols-1 gap-12 border border-ink-900/15 lg:grid-cols-12">
             {/* left: the story */}
@@ -34,7 +34,8 @@ export default function FeaturedStory() {
               <div className="space-y-8">
                 <div>
                   <div className="font-display text-5xl font-light text-ink-900">
-                    &lt;<Counter value={1} suffix="hr" />
+                    &lt;
+                    <Counter value={1} suffix="hr" />
                   </div>
                   <p className="mt-2 font-mono text-[11px] uppercase tracking-wider text-ink-500">
                     From report to resolved

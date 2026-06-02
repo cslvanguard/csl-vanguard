@@ -115,7 +115,7 @@ export default function BlogPostPage() {
       {/* Related */}
       <section className="relative bg-paper-50 py-20">
         <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-10">
             <span className="eyebrow">Keep reading</span>
           </AnimatedSection>

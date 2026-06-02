@@ -35,9 +35,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative overflow-hidden bg-ink-900 text-paper-100">
-      <div className="absolute inset-0 grid-lines-dark opacity-50" aria-hidden />
+      <div
+        className="absolute inset-0 grid-lines-dark opacity-50"
+        aria-hidden
+      />
 
-      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-352 px-6 lg:px-10">
         {/* Oversized wordmark */}
         <div className="border-b border-paper-100/10 py-16">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -53,9 +56,9 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="mt-6 max-w-md text-paper-100/55 leading-relaxed">
-                An independent web studio run by two brothers. We build, fix, and
-                grow websites for individuals and small businesses — with the
-                craft of a big agency and the price of neither.
+                An independent web studio run by two brothers. We build, fix,
+                and grow websites for individuals and small businesses — with
+                the craft of a big agency and the price of neither.
               </p>
               <div className="mt-8 flex flex-col gap-3 text-sm">
                 <a
@@ -111,8 +114,8 @@ export default function Footer() {
 
         {/* Giant signature */}
         <div className="select-none py-10" aria-hidden>
-          <div className="font-display text-[18vw] font-light leading-none tracking-tighter text-paper-100/[0.04] lg:text-[12rem]">
-            Vanguard
+          <div className="font-display text-[18vw] font-light leading-none tracking-tighter text-paper-100/4 lg:text-[12rem]">
+            CSL Vanguard
           </div>
         </div>
 

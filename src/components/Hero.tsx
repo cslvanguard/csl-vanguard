@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowDown } from "lucide-react";
 import Link from "next/link";
 import Counter from "./Counter";
 import CodeArtBackdrop from "./CodeArtBackdrop";
+import TechBlueprint from "./TechBlueprint";
 
 const headline = [
   { text: "Websites", accent: false },
@@ -42,7 +43,7 @@ export default function Hero() {
     <section className="relative overflow-hidden pt-36 pb-16 lg:pt-44 lg:pb-20">
       <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
       <div
-        className="absolute -right-40 -top-20 h-[34rem] w-[34rem] rounded-full bg-cobalt-100/50 blur-[120px]"
+        className="absolute -right-40 -top-20 h-136 w-136 rounded-full bg-cobalt-100/50 blur-[120px]"
         aria-hidden
       />
       <div
@@ -50,8 +51,9 @@ export default function Hero() {
         aria-hidden
       />
       <CodeArtBackdrop />
+      <TechBlueprint />
 
-      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+      <div className="relative mx-auto max-w-352 px-6 lg:px-10">
         {/* top meta row */}
         <motion.div
           initial={{ opacity: 0 }}

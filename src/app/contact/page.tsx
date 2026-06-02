@@ -125,7 +125,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-36 pb-12 lg:pt-44">
         <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection>
             <span className="eyebrow mb-6">Contact</span>
             <h1 className="max-w-4xl font-display text-5xl font-light leading-[0.98] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
@@ -133,9 +133,9 @@ export default function ContactPage() {
               <span className="italic text-cobalt-600">building.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-600 text-pretty">
-              A new site, a broken one, or just an idea you&apos;re mulling over —
-              send it our way. We&apos;ll reply within 24 hours with honest next
-              steps. No pressure, no jargon.
+              A new site, a broken one, or just an idea you&apos;re mulling over
+              — send it our way. We&apos;ll reply within 24 hours with honest
+              next steps. No pressure, no jargon.
             </p>
           </AnimatedSection>
         </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
 
       {/* Methods */}
       <section className="relative py-8">
-        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="mx-auto max-w-352 px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-px overflow-hidden border border-ink-900/15 bg-ink-900/15 sm:grid-cols-3">
             {contactMethods.map((m, i) => (
               <AnimatedSection key={m.title} delay={i * 0.08}>
@@ -171,7 +171,7 @@ export default function ContactPage() {
 
       {/* Form */}
       <section className="relative py-12 lg:py-16">
-        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="mx-auto max-w-352 px-6 lg:px-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <AnimatedSection>
@@ -188,8 +188,8 @@ export default function ContactPage() {
                       Message sent.
                     </h3>
                     <p className="mx-auto mt-3 max-w-md text-ink-600">
-                      Thanks for reaching out — we&apos;ll get back to you within
-                      24 hours with a thoughtful reply.
+                      Thanks for reaching out — we&apos;ll get back to you
+                      within 24 hours with a thoughtful reply.
                     </p>
                     <button
                       onClick={() => {
@@ -379,7 +379,7 @@ export default function ContactPage() {
       {/* FAQ */}
       <section className="relative bg-paper-50 py-20 lg:py-28">
         <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
-        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="relative mx-auto max-w-352 px-6 lg:px-10">
           <AnimatedSection className="mb-12 max-w-2xl">
             <span className="eyebrow mb-5">Good to know</span>
             <h2 className="font-display text-4xl font-light tracking-tight text-ink-900 sm:text-5xl">
