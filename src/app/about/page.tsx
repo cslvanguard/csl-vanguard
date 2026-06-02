@@ -1,63 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/CTA";
-
-import { Heart, Target, Lightbulb, Users, Rocket } from "lucide-react";
-import Image from "next/image";
+import { ArrowUpRight, Linkedin, Globe } from "lucide-react";
 
 const values = [
   {
-    icon: Heart,
-    title: "Craft Over Speed",
+    title: "Craft over shortcuts",
     description:
-      "We believe in doing things right. Every project gets our full attention, because rushing leads to mediocrity.",
+      "We'd rather hand-write a thing well than bolt together something that breaks in six months. Quality is the cheaper option over time.",
   },
   {
-    icon: Target,
-    title: "Results-Focused",
+    title: "Plain language",
     description:
-      "Beautiful design is great, but it means nothing without measurable impact. We optimize for outcomes.",
+      "No jargon walls, no hidden fees, no mysterious invoices. We explain what we're doing in words that make sense.",
   },
   {
-    icon: Lightbulb,
-    title: "Transparent Partnership",
+    title: "Small clients, full effort",
     description:
-      "No jargon, no hidden fees, no surprises. We communicate clearly and treat every client as a partner.",
+      "A local museum gets the same care as a funded startup. Your budget doesn't change how much we sweat the details.",
   },
   {
-    icon: Users,
-    title: "Client-First Always",
+    title: "Answer the phone",
     description:
-      "Your success is our success. We go above and beyond because we genuinely care about the businesses we serve.",
+      "When something's urgent, you reach a person who can actually fix it — not a queue. Often within the hour.",
   },
 ];
 
 const milestones = [
   {
-    year: "2022",
-    title: "The Spark",
-    description:
-      "Two brothers with a shared passion for technology decided to turn late-night coding sessions into something bigger.",
-  },
-  {
-    year: "2023",
-    title: "First Clients",
-    description:
-      "Landed our first major projects. Word spread quickly — quality work speaks for itself.",
-  },
-  {
     year: "2024",
-    title: "Growing Fast",
+    title: "The idea",
     description:
-      "Expanded our services to include security, marketing, and hosting. Crossed 30+ completed projects.",
+      "Two brothers, already the family's go-to for anything tech, realised small businesses kept getting priced out or templated. We decided to do it properly — and fairly.",
   },
   {
     year: "2025",
-    title: "The Vanguard",
+    title: "First clients",
     description:
-      "Today, we're a trusted partner for businesses ready to lead in the digital space. And we're just getting started.",
+      "We built our first sites from the ground up and took on rescues of broken ones. Word travelled the way it does for good work: quietly, then quickly.",
+  },
+  {
+    year: "2026",
+    title: "Finding our stride",
+    description:
+      "Custom builds, fixes, components, marketing, and hosting — a full studio offering, still run directly by the two of us. And we're just getting started.",
+  },
+];
+
+const founders = [
+  {
+    name: "Sajana Wijesinghe",
+    role: "Co-founder · Engineering & Architecture",
+    image: "/images/founder-1.JPG",
+    bio: "Full-stack developer focused on performance, clean architecture, and the unglamorous reliability that keeps sites fast and online. Leads the technical build on every project.",
+    skills: ["Full-Stack", "Architecture", "DevOps"],
+    site: "https://sajanaw.com",
+    linkedin: "https://www.linkedin.com/in/sajana-wijesinghe",
+  },
+  {
+    name: "Lijith Wijesinghe",
+    role: "Co-founder · Design & Strategy",
+    image: "/images/founder-2.jpeg",
+    bio: "Designer-developer hybrid who bridges beautiful interfaces and flawless execution. Drives creative direction, client relationships, and the marketing that gets you found.",
+    skills: ["UI/UX", "Strategy", "Marketing"],
+    site: "https://lijithw.com",
+    linkedin: "https://www.linkedin.com/in/lijith-wijesinghe/",
   },
 ];
 
@@ -65,79 +75,69 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-mesh" />
-        <div className="absolute inset-0 grid-pattern" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl">
-            <span className="section-badge mb-6 inline-flex">Our Story</span>
-            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-8">
-              Two brothers, <span className="gradient-text">one mission</span>
+      <section className="relative overflow-hidden pt-36 pb-16 lg:pt-44">
+        <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
+        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection>
+            <span className="eyebrow mb-6">Our story</span>
+            <h1 className="max-w-4xl font-display text-5xl font-light leading-[0.98] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
+              Two brothers,
+              <br />
+              one <span className="italic text-cobalt-600">stubborn</span>{" "}
+              standard.
             </h1>
-            <p className="text-xl text-midnight-900/50 leading-relaxed">
-              CSL Vanguard was born from a simple belief: every business
-              deserves a web presence that&apos;s as ambitious as they are. We
-              started in a small room with two laptops and a lot of
-              determination. Today, we&apos;re building the digital future — one
-              project at a time.
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-600 text-pretty">
+              CSL Vanguard started with a simple frustration: the small
+              businesses and individuals who most need a great website are the
+              ones agencies overlook or overcharge. So we built the studio we
+              wished they could hire.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Origin Story */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection>
-              <div className="space-y-6">
-                <h2 className="font-display font-bold text-3xl sm:text-4xl tracking-tight">
-                  How it all started
-                </h2>
-                <div className="space-y-4 text-midnight-900/55 leading-relaxed">
-                  <p>
-                    Growing up, we were always the ones our family and friends
-                    turned to when something tech-related needed fixing. A
-                    broken website here, an email setup there — it was second
-                    nature to us. But somewhere along the way, we realized that
-                    most small businesses were being left behind in the digital
-                    revolution.
-                  </p>
-                  <p>
-                    The agencies they could find were either too expensive, too
-                    impersonal, or delivered cookie-cutter solutions that
-                    didn&apos;t truly represent their brand. We knew there was a
-                    better way — a way that combined technical excellence with
-                    genuine care for each client&apos;s unique story.
-                  </p>
-                  <p>
-                    That&apos;s how CSL Vanguard was born. The name says it all:
-                    we&apos;re here to be at the forefront, leading the charge
-                    for businesses that refuse to settle for average.
-                  </p>
-                </div>
+      {/* Origin */}
+      <section className="relative py-20 lg:py-28">
+        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-12">
+            <AnimatedSection className="lg:col-span-7">
+              <h2 className="mb-8 font-display text-3xl font-light tracking-tight text-ink-900 sm:text-4xl">
+                How it started
+              </h2>
+              <div className="space-y-5 text-ink-600 leading-relaxed">
+                <p>
+                  Growing up, we were the ones family and friends called when
+                  something tech-related broke — a website here, an email setup
+                  there. It was second nature. But somewhere along the way we
+                  noticed how many small businesses were being left behind
+                  online.
+                </p>
+                <p>
+                  The agencies they could find were too expensive, too
+                  impersonal, or shipped cookie-cutter templates that didn&apos;t
+                  represent their brand at all. We knew there was a better way —
+                  one that paired real technical craft with genuine care for each
+                  client&apos;s story.
+                </p>
+                <p>
+                  That&apos;s CSL Vanguard. The name says it: we&apos;re here to
+                  be at the front, leading the charge for the people who refuse to
+                  settle for average — without pretending to be something
+                  we&apos;re not.
+                </p>
               </div>
             </AnimatedSection>
 
-            <AnimatedSection direction="right" delay={0.2}>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-linear-to-br from-brand-200/20 to-brand-400/10 rounded-3xl blur-2xl" />
-                <div className="relative glass-card rounded-3xl p-10 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <Rocket className="w-6 h-6 text-brand-500" />
-                    <span className="font-display font-semibold text-brand-600">
-                      Our Mission
-                    </span>
-                  </div>
-                  <p className="text-2xl font-display font-semibold leading-snug">
-                    To empower every business with world-class web solutions
-                    that are accessible, impactful, and built to last.
-                  </p>
-                  <div className="flex items-center gap-3 text-sm text-midnight-900/40">
-                    <div className="w-8 h-px bg-brand-300" />
-                    Since 2022
-                  </div>
+            <AnimatedSection direction="right" delay={0.15} className="lg:col-span-5">
+              <div className="border border-ink-900/15 bg-paper-50 p-10">
+                <span className="eyebrow mb-6">Our mission</span>
+                <p className="font-display text-2xl font-light leading-snug tracking-tight text-ink-900">
+                  To give every business — however small — a web presence as
+                  ambitious as they are, at a price that actually makes sense.
+                </p>
+                <div className="mt-8 flex items-center gap-3 font-mono text-xs uppercase tracking-wider text-ink-500">
+                  <span className="h-px w-8 bg-cobalt-600" />
+                  Since 2024
                 </div>
               </div>
             </AnimatedSection>
@@ -146,141 +146,103 @@ export default function AboutPage() {
       </section>
 
       {/* Founders */}
-      <section className="relative py-24 bg-surface-100 overflow-hidden">
-        <div className="absolute inset-0 dot-pattern opacity-30" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <span className="section-badge mb-6 inline-flex">The Founders</span>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-6">
-              Meet the brothers behind{" "}
-              <span className="gradient-text">the vision</span>
+      <section className="relative bg-paper-50 py-20 lg:py-28">
+        <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
+        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection className="mb-14 max-w-2xl">
+            <span className="eyebrow mb-5">The founders</span>
+            <h2 className="font-display text-4xl font-light tracking-tight text-ink-900 sm:text-5xl">
+              Meet the brothers behind the work.
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {[
-              {
-                name: "Sajana Wijesinghe",
-                role: "Co-Founder & Lead Developer",
-                initial: "S",
-                image: "/images/founder-1.JPG",
-                bio: "A full-stack developer with a passion for building scalable, elegant solutions. Obsessed with performance, clean code, and creating experiences that feel effortless. Leads the technical vision and architecture of every project.",
-                skills: ["Full-Stack Dev", "Architecture", "DevOps"],
-                website: "https://sajanaw.com",
-              },
-              {
-                name: "Lijith Wijesinghe",
-                role: "Co-Founder & Creative Director",
-                initial: "L",
-                image: "/images/founder-2.jpeg",
-                bio: "A designer-developer hybrid who bridges the gap between beautiful design and flawless execution. Drives the creative direction, client relationships, and ensures every project tells a compelling story.",
-                skills: ["UI/UX Design", "Strategy", "Marketing"],
-                website: "https://lijithw.com",
-              },
-            ].map((founder, index) => (
-              <AnimatedSection key={founder.name} delay={index * 0.15}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="glass-card rounded-3xl p-8 text-center"
-                >
-                  {/* Avatar placeholder */}
-                  <div className="relative w-36 h-36 mx-auto mb-6">
-                    <div className="absolute inset-0 rounded-full bg-linear-to-br from-brand-300 to-brand-600 animate-pulse-slow" />
-                    <div className="absolute inset-1 rounded-full bg-white flex items-center justify-center">
-                      {/*<div className="w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full bg-linear-to-br from-brand-100 to-brand-200 flex items-center justify-center">*/}
-                      {/*  /!*<span className="font-display font-bold text-4xl text-brand-600">*!/*/}
-                      {/*  /!*  {founder.initial}*!/*/}
-                      {/*  /!*</span>*!/*/}
-                      {/*</div>*/}
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-paper-300 bg-paper-300 md:grid-cols-2">
+            {founders.map((f, i) => (
+              <AnimatedSection key={f.name} delay={i * 0.12}>
+                <motion.div className="h-full bg-paper-50 p-8 sm:p-10">
+                  <div className="flex items-center gap-5">
+                    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full border border-paper-300">
                       <Image
-                        src={founder.image}
-                        alt={founder.name}
+                        src={f.image}
+                        alt={f.name}
                         fill
-                        className={"object-cover object-center rounded-full"}
+                        sizes="96px"
+                        className="object-cover object-center"
                       />
                     </div>
-                    {/* Replace the div above with an actual image: */}
-                    {/* <Image src="/images/founder-1.jpg" alt={founder.name} fill className="object-cover rounded-full" /> */}
+                    <div>
+                      <h3 className="font-display text-2xl font-medium text-ink-900">
+                        {f.name}
+                      </h3>
+                      <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-cobalt-600">
+                        {f.role}
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="font-display font-bold text-2xl mb-1">
-                    {founder.name}
-                  </h3>
-                  <p className="text-brand-500 font-display text-sm font-semibold mb-4">
-                    {founder.role}
+                  <p className="mt-6 text-sm leading-relaxed text-ink-600">
+                    {f.bio}
                   </p>
-                  <p className="text-midnight-900/50 text-sm leading-relaxed mb-6">
-                    {founder.bio}
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center mb-4">
-                    {founder.skills.map((skill) => (
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {f.skills.map((s) => (
                       <span
-                        key={skill}
-                        className="px-3 py-1 text-xs font-display font-medium bg-brand-50 text-brand-600 rounded-full border border-brand-100"
+                        key={s}
+                        className="border border-paper-300 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-500"
                       >
-                        {skill}
+                        {s}
                       </span>
                     ))}
                   </div>
-                  <a
-                    href={founder.website}
-                    className={"text-brand-500 hover:text-brand-900 underline"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {founder.website}
-                  </a>
+                  <div className="mt-7 flex items-center gap-5 border-t border-paper-300 pt-5">
+                    <a
+                      href={f.site}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 text-sm font-semibold text-ink-900"
+                    >
+                      <Globe className="h-4 w-4 text-cobalt-600" />
+                      Portfolio
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
+                    <a
+                      href={f.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink-900 hover:text-cobalt-600"
+                    >
+                      <Linkedin className="h-4 w-4 text-cobalt-600" />
+                      LinkedIn
+                    </a>
+                  </div>
                 </motion.div>
               </AnimatedSection>
             ))}
           </div>
-
-          <AnimatedSection className="mt-8 text-center" delay={0.3}>
-            <p className="text-sm text-midnight-900/40 italic">
-              Replace the placeholder initials with actual founder photos by
-              adding images to{" "}
-              <code className="font-mono text-brand-500">/public/images/</code>{" "}
-              and updating the component.
-            </p>
-          </AnimatedSection>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <span className="section-badge mb-6 inline-flex">Our Journey</span>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl tracking-tight">
-              Milestones that <span className="gradient-text">define us</span>
+      <section className="relative py-20 lg:py-28">
+        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection className="mb-14 max-w-2xl">
+            <span className="eyebrow mb-5">The journey</span>
+            <h2 className="font-display text-4xl font-light tracking-tight text-ink-900 sm:text-5xl">
+              Young studio, real receipts.
             </h2>
           </AnimatedSection>
 
-          <div className="max-w-3xl mx-auto">
-            {milestones.map((milestone, index) => (
-              <AnimatedSection
-                key={milestone.year}
-                delay={index * 0.1}
-                direction="left"
-              >
-                <div className="flex gap-8 mb-12 last:mb-0">
-                  <div className="flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-display font-bold text-sm shadow-glow">
-                      {milestone.year}
-                    </div>
-                    {index < milestones.length - 1 && (
-                      <div className="w-px flex-1 bg-linear-to-b from-brand-300 to-transparent mt-4" />
-                    )}
+          <div className="border-t border-ink-900/15">
+            {milestones.map((m, i) => (
+              <AnimatedSection key={m.year} delay={i * 0.1}>
+                <div className="grid grid-cols-1 gap-4 border-b border-ink-900/15 py-10 md:grid-cols-12 md:items-baseline">
+                  <div className="font-display text-5xl font-light text-cobalt-600 md:col-span-3">
+                    {m.year}
                   </div>
-                  <div className="pb-12">
-                    <h3 className="font-display font-bold text-xl mb-2">
-                      {milestone.title}
-                    </h3>
-                    <p className="text-midnight-900/50 text-sm leading-relaxed">
-                      {milestone.description}
-                    </p>
-                  </div>
+                  <h3 className="font-display text-2xl font-medium text-ink-900 md:col-span-3">
+                    {m.title}
+                  </h3>
+                  <p className="max-w-xl text-ink-600 leading-relaxed md:col-span-6">
+                    {m.description}
+                  </p>
                 </div>
               </AnimatedSection>
             ))}
@@ -288,32 +250,34 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="relative py-24 bg-midnight-900 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-mesh-dark" />
-        <div className="absolute inset-0 grid-pattern opacity-20" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-16">
-            <span className="section-badge mb-6 inline-flex border-brand-500/20 text-brand-400 bg-brand-500/10">
-              Our Values
+      {/* Values — dark anchor */}
+      <section className="relative overflow-hidden bg-ink-900 py-20 text-paper-100 lg:py-28">
+        <div className="absolute inset-0 grid-lines-dark opacity-60" aria-hidden />
+        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection className="mb-14 max-w-2xl">
+            <span
+              className="eyebrow mb-5"
+              style={{ color: "var(--color-paper-300)" }}
+            >
+              What we stand for
             </span>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl tracking-tight text-white">
-              What drives <span className="text-brand-400">everything</span> we
-              do
+            <h2 className="font-display text-4xl font-light tracking-tight text-paper-50 sm:text-5xl">
+              The principles we don&apos;t bend.
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {values.map((value, index) => (
-              <AnimatedSection key={value.title} delay={index * 0.1}>
-                <div className="p-8 rounded-2xl bg-white/3 border border-white/6 backdrop-blur-sm hover:bg-white/6 transition-all duration-500">
-                  <value.icon className="w-8 h-8 text-brand-400 mb-4" />
-                  <h3 className="font-display font-bold text-xl text-white mb-2">
-                    {value.title}
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-paper-100/10 bg-paper-100/10 sm:grid-cols-2">
+            {values.map((v, i) => (
+              <AnimatedSection key={v.title} delay={(i % 2) * 0.08}>
+                <div className="h-full bg-ink-900 p-8 sm:p-10">
+                  <span className="font-mono text-xs text-cobalt-400">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 font-display text-2xl font-medium text-paper-50">
+                    {v.title}
                   </h3>
-                  <p className="text-sm text-white/40 leading-relaxed">
-                    {value.description}
+                  <p className="mt-3 text-sm leading-relaxed text-paper-100/55">
+                    {v.description}
                   </p>
                 </div>
               </AnimatedSection>

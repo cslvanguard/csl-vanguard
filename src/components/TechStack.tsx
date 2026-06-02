@@ -1,45 +1,71 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
-const technologies = [
-  "React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js",
-  "PostgreSQL", "MySQL", "Firebase", "AppWrite", "Python",
+const marqueeItems = [
+  "Custom Websites",
+  "Website Rescues",
+  "Custom Components",
+  "Online Marketing",
+  "Web Hosting",
+  "Performance Tuning",
+  "SEO",
+  "Maintenance",
+];
+
+const tools = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "Tailwind CSS",
+  "Node.js",
+  "PostgreSQL",
+  "Firebase",
+  "Appwrite",
+  "Python",
+  "Netlify",
 ];
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="relative py-20 overflow-hidden border-y border-brand-100/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
-        <AnimatedSection className="text-center">
-          <p className="font-display text-sm font-semibold text-midnight-900/30 uppercase tracking-widest">
-            Technologies We Trust
+    <section
+      id="trust"
+      className="relative overflow-hidden border-y border-paper-300 bg-paper-50 py-14"
+    >
+      <div className="mx-auto mb-10 max-w-[88rem] px-6 lg:px-10">
+        <AnimatedSection>
+          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-ink-500">
+            What we do — and the tools we trust to do it
           </p>
         </AnimatedSection>
       </div>
 
-      {/* Marquee */}
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-surface-50 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-surface-50 to-transparent z-10" />
-
-        <motion.div
-          animate={{ x: [0, -1920] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="flex gap-12 items-center whitespace-nowrap"
-        >
-          {[...technologies, ...technologies, ...technologies].map(
-            (tech, i) => (
-              <span
-                key={`${tech}-${i}`}
-                className="font-display font-semibold text-2xl text-midnight-900/10 hover:text-brand-500/40 transition-colors duration-300 cursor-default"
-              >
-                {tech}
+      {/* services marquee */}
+      <div className="marquee-mask overflow-hidden">
+        <div className="marquee-track flex w-max items-center">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="flex items-center">
+              <span className="px-8 font-display text-3xl font-light text-ink-900 sm:text-4xl">
+                {item}
               </span>
-            )
-          )}
-        </motion.div>
+              <span className="text-marigold-500">✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* tools marquee — reverse direction via row-reverse */}
+      <div className="marquee-mask mt-8 overflow-hidden">
+        <div className="marquee-track flex w-max items-center flex-row-reverse">
+          {[...tools, ...tools].map((tool, i) => (
+            <span
+              key={i}
+              className="px-7 font-mono text-sm uppercase tracking-wider text-ink-400"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

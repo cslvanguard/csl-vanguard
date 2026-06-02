@@ -8,6 +8,7 @@ interface AnimatedSectionProps {
   className?: string;
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
+  as?: "div" | "section" | "li" | "article";
 }
 
 export default function AnimatedSection({
@@ -17,38 +18,22 @@ export default function AnimatedSection({
   direction = "up",
 }: AnimatedSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const isInView = useInView(ref, { once: true, margin: "-60px" });
 
-  const directionOffset = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
+  const offset = {
+    up: { y: 32, x: 0 },
+    down: { y: -32, x: 0 },
     left: { y: 0, x: 40 },
     right: { y: 0, x: -40 },
     none: { y: 0, x: 0 },
-  };
+  }[direction];
 
   return (
     <motion.div
       ref={ref}
-      initial={{
-        opacity: 0,
-        y: directionOffset[direction].y,
-        x: directionOffset[direction].x,
-      }}
-      animate={
-        isInView
-          ? { opacity: 1, y: 0, x: 0 }
-          : {
-              opacity: 0,
-              y: directionOffset[direction].y,
-              x: directionOffset[direction].x,
-            }
-      }
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
+      initial={{ opacity: 0, y: offset.y, x: offset.x }}
+      animate={isInView ? { opacity: 1, y: 0, x: 0 } : {}}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

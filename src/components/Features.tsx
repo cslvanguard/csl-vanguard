@@ -1,93 +1,91 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import {
-  Zap,
-  Palette,
-  Code2,
-  BarChart3,
-  Clock,
-  Users,
-} from "lucide-react";
+import { Gauge, Hand, FileCode2, Wallet, MessagesSquare, Sparkles } from "lucide-react";
 
 const features = [
   {
-    icon: Zap,
-    title: "Lightning Fast",
-    description: "Every site is optimized for Core Web Vitals. Sub-second load times are the standard, not the exception.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: Hand,
+    title: "You talk to the makers",
+    description:
+      "No account managers, no ticket queues. You message the two people who actually build your site.",
   },
   {
-    icon: Palette,
-    title: "Design-First Thinking",
-    description: "We believe great software starts with great design. Every pixel is intentional, every interaction delightful.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: FileCode2,
+    title: "Hand-built, not templated",
+    description:
+      "Every site is written from scratch in modern code — so it's faster, safer, and truly your own.",
   },
   {
-    icon: Code2,
-    title: "Modern Tech Stack",
-    description: "React, Next.js, TypeScript, Tailwind — we use battle-tested tools that scale with your business and make maintenance a breeze.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: Gauge,
+    title: "Fast by default",
+    description:
+      "We build for Core Web Vitals. Sub-second loads aren't a luxury add-on — they're the baseline.",
   },
   {
-    icon: BarChart3,
-    title: "Data-Driven Results",
-    description: "We don't just build pretty sites. Every decision is backed by analytics and designed to drive measurable growth.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: Wallet,
+    title: "Priced for real people",
+    description:
+      "Big-studio quality without the big-studio invoice. Honest quotes, no surprise line items.",
   },
   {
-    icon: Clock,
-    title: "On-Time Delivery",
-    description: "We set realistic timelines and stick to them. No surprises, no endless delays — just reliable execution.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: MessagesSquare,
+    title: "We answer — fast",
+    description:
+      "When something breaks, you want a human now. We've turned a critical fix around in under an hour.",
   },
   {
-    icon: Users,
-    title: "Dedicated Partnership",
-    description: "You get direct access to the founders, not a support ticket queue. We treat your project like our own.",
-    className: "md:col-span-1 md:row-span-1",
+    icon: Sparkles,
+    title: "We stick around",
+    description:
+      "Launch is the start, not the finish. We maintain, update, and grow what we build with you.",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-30" />
+    <section className="relative bg-paper-50 py-24 lg:py-32">
+      <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
+      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <AnimatedSection className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <span className="eyebrow mb-5">Why CSL Vanguard</span>
+              <h2 className="font-display text-4xl font-light leading-[1.05] tracking-tight text-ink-900 sm:text-5xl">
+                Built different,
+                <br />
+                <span className="accent-underline">delivered better.</span>
+              </h2>
+              <p className="mt-6 max-w-sm text-ink-600">
+                Two brothers, one obsession: making small businesses look like
+                the biggest name in the room.
+              </p>
+            </div>
+          </AnimatedSection>
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-20">
-          <span className="section-badge mb-6 inline-flex">Why CSL Vanguard</span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6">
-            Built different,{" "}
-            <span className="gradient-text">delivered better</span>
-          </h2>
-          <p className="text-lg text-midnight-900/50 max-w-2xl mx-auto">
-            We combine cutting-edge technology with meticulous craftsmanship
-            to deliver results that set you apart.
-          </p>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <AnimatedSection key={feature.title} delay={index * 0.08}>
-              <motion.div
-                whileHover={{ y: -4, scale: 1.01 }}
-                transition={{ duration: 0.3 }}
-                className={`glass-card rounded-2xl p-8 h-full ${feature.className}`}
-              >
-                <div className="w-12 h-12 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-6 h-6 text-brand-600" />
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-paper-300 bg-paper-300 sm:grid-cols-2 lg:col-span-8">
+            {features.map((f, i) => (
+              <AnimatedSection key={f.title} delay={(i % 2) * 0.08}>
+                <div className="group h-full bg-paper-50 p-8 transition-colors duration-500 hover:bg-paper">
+                  <div className="mb-6 flex items-center justify-between">
+                    <f.icon
+                      className="h-6 w-6 text-cobalt-600 transition-transform duration-500 group-hover:-translate-y-1"
+                      strokeWidth={1.6}
+                    />
+                    <span className="font-mono text-xs text-ink-400">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mb-2 font-display text-xl font-medium text-ink-900">
+                    {f.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-ink-600">
+                    {f.description}
+                  </p>
                 </div>
-                <h3 className="font-display font-bold text-lg mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-midnight-900/50 leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            </AnimatedSection>
-          ))}
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
     </section>

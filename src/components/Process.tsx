@@ -1,86 +1,69 @@
 "use client";
 
 import AnimatedSection from "./AnimatedSection";
-import { MessageSquare, Layers, Rocket, Headphones } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: MessageSquare,
-    title: "Discovery",
+    title: "Talk",
     description:
-      "We dive deep into your vision, goals, and audience. Understanding your needs is the foundation of everything we build.",
+      "A free, no-pressure call. We listen to what you're trying to do, who you serve, and what success looks like for you.",
   },
   {
     number: "02",
-    icon: Layers,
-    title: "Design & Plan",
+    title: "Plan",
     description:
-      "Our team crafts wireframes, prototypes, and a clear roadmap. You'll see exactly what we're building before a single line of code.",
+      "You get a clear scope, timeline, and fixed quote — plus a design direction you can see and react to before we build.",
   },
   {
     number: "03",
-    icon: Rocket,
-    title: "Build & Launch",
+    title: "Build",
     description:
-      "We develop with modern technologies, rigorous testing, and attention to every detail. Your project launches polished and performant.",
+      "We design and code in tight loops, sharing previews as we go. No black box — you watch it come together.",
   },
   {
     number: "04",
-    icon: Headphones,
-    title: "Support & Grow",
+    title: "Grow",
     description:
-      "Our partnership doesn't end at launch. We provide ongoing support, updates, and optimization to keep your site ahead of the curve.",
+      "We launch, then stay on. Maintenance, fixes, and improvements keep your site quick and ahead of the curve.",
   },
 ];
 
 export default function Process() {
   return (
-    <section className="relative py-32 bg-midnight-900 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-mesh-dark" />
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+    <section className="relative overflow-hidden bg-ink-900 py-24 text-paper-100 lg:py-32">
+      <div className="absolute inset-0 grid-lines-dark opacity-70" aria-hidden />
+      <div
+        className="absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-cobalt-600/20 blur-[130px]"
+        aria-hidden
+      />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-20">
-          <span className="section-badge mb-6 inline-flex border-brand-500/20 text-brand-400 bg-brand-500/10">
-            Our Process
+      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        <AnimatedSection className="mb-16 max-w-3xl">
+          <span className="eyebrow mb-5" style={{ color: "var(--color-paper-300)" }}>
+            How we work
           </span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white mb-6">
-            From idea to{" "}
-            <span className="text-brand-400">reality</span>
+          <h2 className="font-display text-4xl font-light leading-[1.05] tracking-tight text-paper-50 sm:text-5xl lg:text-6xl">
+            From first hello to
+            <br />
+            launch day —{" "}
+            <span className="italic text-marigold-400">no surprises.</span>
           </h2>
-          <p className="text-lg text-white/40 max-w-2xl mx-auto">
-            A proven process refined through dozens of projects. Transparent,
-            collaborative, and designed for results.
-          </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <AnimatedSection key={step.number} delay={index * 0.15}>
-              <div className="relative group">
-                {/* Connecting line */}
-                {index < 3 && (
-                  <div className="hidden lg:block absolute top-12 left-[calc(50%+2rem)] w-[calc(100%-2rem)] h-px bg-linear-to-r from-brand-500/30 to-transparent" />
-                )}
-
-                <div className="relative p-6 rounded-2xl bg-white/3 border border-white/6 backdrop-blur-sm hover:bg-white/6 hover:border-brand-500/20 transition-all duration-500">
-                  <div className="flex items-center gap-4 mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center group-hover:bg-brand-500/20 transition-colors">
-                      <step.icon className="w-5 h-5 text-brand-400" />
-                    </div>
-                    <span className="font-mono text-sm text-brand-500/60">
-                      {step.number}
-                    </span>
-                  </div>
-                  <h3 className="font-display font-bold text-xl text-white mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-white/40 leading-relaxed">
-                    {step.description}
-                  </p>
+        <div className="grid grid-cols-1 gap-px overflow-hidden border border-paper-100/10 bg-paper-100/10 md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step, i) => (
+            <AnimatedSection key={step.number} delay={i * 0.1}>
+              <div className="group h-full bg-ink-900 p-8 transition-colors duration-500 hover:bg-ink-800">
+                <div className="mb-8 font-display text-6xl font-light text-paper-100/15 transition-colors duration-500 group-hover:text-cobalt-400">
+                  {step.number}
                 </div>
+                <h3 className="mb-3 font-display text-2xl font-medium text-paper-50">
+                  {step.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-paper-100/55">
+                  {step.description}
+                </p>
               </div>
             </AnimatedSection>
           ))}

@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { blogPosts } from "@/lib/blog-data";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowLeft, Clock, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Clock, Calendar } from "lucide-react";
 import Link from "next/link";
 
 export default function BlogPostPage() {
@@ -12,86 +12,72 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center px-6">
         <div className="text-center">
-          <h1 className="font-display font-bold text-4xl mb-4">Post not found</h1>
+          <h1 className="mb-6 font-display text-4xl font-light text-ink-900">
+            Post not found
+          </h1>
           <Link href="/blog" className="btn-primary">
-            <span className="relative z-10">Back to Blog</span>
+            Back to the journal
           </Link>
         </div>
       </div>
     );
   }
 
-  // Simple markdown-like content rendering
-  const renderContent = (content: string) => {
-    return content.split("\n\n").map((block, i) => {
+  const renderContent = (content: string) =>
+    content.split("\n\n").map((block, i) => {
       if (block.startsWith("## ")) {
-        return (
-          <h2
-            key={i}
-            className="font-display font-bold text-2xl mt-10 mb-4"
-          >
-            {block.replace("## ", "")}
-          </h2>
-        );
+        return <h2 key={i}>{block.replace("## ", "")}</h2>;
       }
-      return (
-        <p
-          key={i}
-          className="text-midnight-900/60 leading-relaxed mb-4"
-        >
-          {block}
-        </p>
-      );
+      return <p key={i}>{block}</p>;
     });
-  };
+
+  const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <>
       {/* Header */}
-      <section className="relative pt-40 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-mesh" />
-        <div className="absolute inset-0 grid-pattern" />
-
-        <div className="relative max-w-4xl mx-auto px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-36 pb-12 lg:pt-44">
+        <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
+        <div className="relative mx-auto max-w-3xl px-6 lg:px-10">
           <AnimatedSection>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-display font-medium text-brand-600 hover:text-brand-700 transition-colors mb-8"
+              className="mb-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-500 transition-colors hover:text-cobalt-600"
             >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Blog
+              <ArrowLeft className="h-4 w-4" />
+              The journal
             </Link>
 
-            <div className="flex items-center gap-3 mb-6">
-              <span className="px-3 py-1 text-xs font-display font-semibold bg-brand-50 text-brand-600 rounded-full border border-brand-100">
+            <div className="mb-8 flex flex-wrap items-center gap-4">
+              <span className="border border-cobalt-600/30 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-cobalt-600">
                 {post.category}
               </span>
-              <span className="text-sm text-midnight-900/40 flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-ink-500">
+                <Calendar className="h-3.5 w-3.5" />
                 {post.date}
               </span>
-              <span className="text-sm text-midnight-900/40 flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5" />
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-ink-500">
+                <Clock className="h-3.5 w-3.5" />
                 {post.readTime}
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-4xl sm:text-5xl tracking-tight mb-8 text-balance">
+            <h1 className="font-display text-4xl font-light leading-[1.05] tracking-tight text-ink-900 sm:text-5xl text-balance">
               {post.title}
             </h1>
 
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-linear-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white font-display font-bold text-sm">
+            <div className="mt-8 flex items-center gap-3 border-t border-ink-900/15 pt-6">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-ink-900 font-display text-sm font-medium text-paper-50">
                 {post.authorInitial}
-              </div>
+              </span>
               <div>
-                <div className="font-display font-semibold text-sm">
+                <div className="font-body text-sm font-semibold text-ink-900">
                   {post.author}
                 </div>
-                <div className="text-xs text-midnight-900/40">
-                  Team
+                <div className="font-mono text-[11px] uppercase tracking-wider text-ink-500">
+                  Studio
                 </div>
               </div>
             </div>
@@ -99,47 +85,64 @@ export default function BlogPostPage() {
         </div>
       </section>
 
-      {/* Cover */}
-      <section className="max-w-4xl mx-auto px-6 lg:px-8 mb-12">
-        <AnimatedSection>
-          <div
-            className={`h-64 sm:h-80 rounded-2xl bg-linear-to-br ${post.color} flex items-center justify-center overflow-hidden`}
-          >
-            <div className="text-white/10 font-display font-bold text-[16rem] leading-none select-none">
-              {post.title[0]}
-            </div>
-          </div>
-        </AnimatedSection>
-      </section>
+      {/* Body */}
+      <section className="relative pb-20">
+        <div className="mx-auto max-w-3xl px-6 lg:px-10">
+          <AnimatedSection>
+            <article className="prose-vanguard">
+              {renderContent(post.content)}
+            </article>
+          </AnimatedSection>
 
-      {/* Content */}
-      <section className="max-w-3xl mx-auto px-6 lg:px-8 pb-24">
-        <AnimatedSection>
-          <article className="prose-like">
-            {renderContent(post.content)}
-          </article>
-        </AnimatedSection>
-
-        {/* Share / Next */}
-        <AnimatedSection delay={0.2}>
-          <div className="mt-16 pt-8 border-t border-brand-100/30">
-            <div className="flex items-center justify-between">
+          <AnimatedSection delay={0.1}>
+            <div className="mt-14 flex items-center justify-between border-t border-ink-900/15 pt-8">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-2 text-sm font-display font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+                className="inline-flex items-center gap-2 font-body text-sm font-semibold text-ink-900 hover:text-cobalt-600"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="h-4 w-4" />
                 All posts
               </Link>
-              <Link
-                href="/contact"
-                className="btn-secondary text-sm"
-              >
+              <Link href="/contact" className="btn-primary text-sm">
                 Work with us
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Related */}
+      <section className="relative bg-paper-50 py-20">
+        <div className="absolute inset-0 grid-lines opacity-40" aria-hidden />
+        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection className="mb-10">
+            <span className="eyebrow">Keep reading</span>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 gap-px overflow-hidden border border-ink-900/15 bg-ink-900/15 md:grid-cols-2">
+            {related.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="group flex h-full flex-col bg-paper p-8 transition-colors hover:bg-paper-50"
+              >
+                <span className="border border-cobalt-600/30 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cobalt-600 w-fit">
+                  {p.category}
+                </span>
+                <h3 className="mt-5 font-display text-2xl font-medium leading-snug text-ink-900 transition-colors group-hover:text-cobalt-600">
+                  {p.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-600">
+                  {p.excerpt}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-1.5 font-body text-sm font-semibold text-ink-900">
+                  Read
+                  <ArrowUpRight className="h-4 w-4 text-cobalt-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                </span>
+              </Link>
+            ))}
           </div>
-        </AnimatedSection>
+        </div>
       </section>
     </>
   );

@@ -1,125 +1,128 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
+import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
-  Services: [
-    { label: "Custom Websites", href: "/projects" },
-    { label: "Website Updates", href: "/projects" },
-    { label: "Custom Components", href: "/projects" },
-    { label: "Web Security", href: "/projects" },
-    { label: "Online Marketing", href: "/projects" },
-    { label: "Web Hosting", href: "/projects" },
-  ],
-  Company: [
-    { label: "About Us", href: "/about" },
-    { label: "Our Projects", href: "/projects" },
-    { label: "Blog", href: "/blog" },
+  Studio: [
+    { label: "About", href: "/about" },
+    { label: "Work", href: "/projects" },
+    { label: "Journal", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],
-  Resources: [
-    { label: "Documentation", href: "#" },
-    { label: "Support", href: "/contact" },
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+  Services: [
+    { label: "Custom Websites", href: "/contact" },
+    { label: "Fix & Improve", href: "/contact" },
+    { label: "Custom Components", href: "/contact" },
+    { label: "Online Marketing", href: "/contact" },
+    { label: "Web Hosting", href: "/contact" },
+  ],
+  Founders: [
+    { label: "Sajana Wijesinghe", href: "https://sajanaw.com" },
+    { label: "Lijith Wijesinghe", href: "https://lijithw.com" },
+    {
+      label: "LinkedIn — Sajana",
+      href: "https://www.linkedin.com/in/sajana-wijesinghe",
+    },
+    {
+      label: "LinkedIn — Lijith",
+      href: "https://www.linkedin.com/in/lijith-wijesinghe/",
+    },
   ],
 };
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="relative bg-midnight-900 text-white overflow-hidden">
-      {/* Gradient mesh */}
-      <div className="absolute inset-0 bg-gradient-mesh-dark opacity-50" />
-      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-brand-500/30 to-transparent" />
+    <footer className="relative overflow-hidden bg-ink-900 text-paper-100">
+      <div className="absolute inset-0 grid-lines-dark opacity-50" aria-hidden />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-10">
-        {/* Top Section */}
-        <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
-            {/* Brand */}
-            <div className="lg:col-span-4">
-              <Link href="/" className="flex items-center gap-3 mb-6">
-                <div className="relative w-10 h-10">
-                  <div className="absolute inset-0 rounded-xl bg-linear-to-br from-brand-400 to-brand-600 flex items-center justify-center">
-                    <span className="text-white font-display font-bold text-lg">
-                      C
-                    </span>
-                  </div>
-                </div>
-                <span className="font-display font-bold text-xl tracking-tight">
-                  CSL <span className="text-brand-400">Vanguard</span>
+      <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+        {/* Oversized wordmark */}
+        <div className="border-b border-paper-100/10 py-16">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <Link href="/" className="group inline-flex items-center gap-3">
+                <span className="flex h-9 w-9 items-center justify-center bg-paper-50 text-ink-900">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 1L15 14.5H1L8 1Z" fill="currentColor" />
+                  </svg>
+                </span>
+                <span className="font-display text-xl font-semibold text-paper-50">
+                  CSL Vanguard
                 </span>
               </Link>
-              <p className="text-white/50 text-sm leading-relaxed mb-8 max-w-sm">
-                Pioneering web solutions that transform how businesses connect
-                with their audiences. Built by developers, for visionaries.
+              <p className="mt-6 max-w-md text-paper-100/55 leading-relaxed">
+                An independent web studio run by two brothers. We build, fix, and
+                grow websites for individuals and small businesses — with the
+                craft of a big agency and the price of neither.
               </p>
-              <div className="flex flex-col gap-3 text-sm">
+              <div className="mt-8 flex flex-col gap-3 text-sm">
                 <a
                   href="mailto:customersupport@cslvanguard.com"
-                  className="flex items-center gap-3 text-white/50 hover:text-brand-400 transition-colors"
+                  className="inline-flex items-center gap-3 text-paper-100/60 transition-colors hover:text-marigold-400"
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail className="h-4 w-4" />
                   customersupport@cslvanguard.com
                 </a>
                 <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-3 text-white/50 hover:text-brand-400 transition-colors"
+                  href="tel:+14015927299"
+                  className="inline-flex items-center gap-3 text-paper-100/60 transition-colors hover:text-marigold-400"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="h-4 w-4" />
                   +1 (401) 592-7299
                 </a>
-                <div className="flex items-center gap-3 text-white/50">
-                  <MapPin className="w-4 h-4" />
-                  Remote-first, Worldwide
-                </div>
+                <span className="inline-flex items-center gap-3 text-paper-100/60">
+                  <MapPin className="h-4 w-4" />
+                  Remote-first, worldwide
+                </span>
               </div>
             </div>
 
-            {/* Links */}
-            <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-10">
-              {Object.entries(footerLinks).map(([category, links]) => (
-                <div key={category}>
-                  <h4 className="font-display font-semibold text-sm text-white/80 mb-5 uppercase tracking-wider">
-                    {category}
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-5">
+              {Object.entries(footerLinks).map(([heading, links]) => (
+                <div key={heading}>
+                  <h4 className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-paper-100/40">
+                    {heading}
                   </h4>
                   <ul className="flex flex-col gap-3">
-                    {links.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-white/40 hover:text-brand-400 transition-colors duration-300 flex items-center gap-1 group"
-                        >
-                          {link.label}
-                          <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                        </Link>
-                      </li>
-                    ))}
+                    {links.map((link) => {
+                      const external = link.href.startsWith("http");
+                      return (
+                        <li key={link.label}>
+                          <Link
+                            href={link.href}
+                            target={external ? "_blank" : undefined}
+                            rel={external ? "noopener noreferrer" : undefined}
+                            className="group inline-flex items-center gap-1 text-sm text-paper-100/60 transition-colors hover:text-paper-50"
+                          >
+                            {link.label}
+                            <ArrowUpRight className="h-3 w-3 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ))}
             </div>
           </div>
-        </AnimatedSection>
+        </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/30">
-            © {new Date().getFullYear()} CSL Vanguard. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {["Twitter", "GitHub", "LinkedIn"].map((social) => (
-              <a
-                key={social}
-                href="#"
-                className="text-sm text-white/30 hover:text-brand-400 transition-colors"
-              >
-                {social}
-              </a>
-            ))}
+        {/* Giant signature */}
+        <div className="select-none py-10" aria-hidden>
+          <div className="font-display text-[18vw] font-light leading-none tracking-tighter text-paper-100/[0.04] lg:text-[12rem]">
+            Vanguard
           </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-paper-100/10 py-8 sm:flex-row">
+          <p className="font-mono text-xs uppercase tracking-wider text-paper-100/40">
+            © {year} CSL Vanguard — All rights reserved
+          </p>
+          <p className="font-mono text-xs uppercase tracking-wider text-paper-100/40">
+            Designed &amp; built in-house
+          </p>
         </div>
       </div>
     </footer>

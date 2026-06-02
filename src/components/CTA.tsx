@@ -1,62 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative py-24 lg:py-32">
+      <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
         <AnimatedSection>
-          <div className="relative rounded-3xl overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-linear-to-br from-brand-600 via-brand-700 to-midnight-900" />
-            <div className="absolute inset-0 bg-gradient-mesh-dark opacity-60" />
-            <div className="absolute inset-0 grid-pattern opacity-10" />
+          <div className="relative overflow-hidden bg-cobalt-600 px-8 py-16 text-paper-50 sm:px-14 sm:py-20 lg:px-20 lg:py-24">
+            <div
+              className="absolute inset-0 grid-lines-dark opacity-50"
+              aria-hidden
+            />
+            <div
+              className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-marigold-400/30 blur-[100px]"
+              aria-hidden
+            />
 
-            {/* Floating elements */}
-            <div className="absolute top-10 right-10 w-40 h-40 rounded-full bg-brand-400/20 blur-[60px]" />
-            <div className="absolute bottom-10 left-10 w-32 h-32 rounded-full bg-brand-300/15 blur-[50px]" />
+            <div className="relative grid grid-cols-1 items-end gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-8">
+                <span className="font-mono text-[11px] uppercase tracking-[0.24em] text-paper-100/70">
+                  Ready when you are
+                </span>
+                <h2 className="mt-5 font-display text-4xl font-light leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl">
+                  Let&apos;s build something
+                  <br />
+                  worth <span className="italic">bookmarking.</span>
+                </h2>
+                <p className="mt-6 max-w-lg text-paper-100/80">
+                  A new site, a rescue, or just a second opinion — tell us what
+                  you&apos;re working on and we&apos;ll reply within 24 hours.
+                  The first conversation is always free.
+                </p>
+              </div>
 
-            <div className="relative px-8 sm:px-16 py-20 text-center">
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/10 text-white/80 text-xs font-display font-semibold tracking-wider uppercase mb-8"
-              >
-                <Zap className="w-3.5 h-3.5" />
-                Ready to start?
-              </motion.div>
-
-              <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white mb-6">
-                Let&apos;s build something
-                <br />
-                <span className="text-brand-300">extraordinary</span>
-              </h2>
-
-              <p className="text-lg text-white/50 max-w-xl mx-auto mb-10">
-                Whether you need a brand-new site, a complete overhaul, or
-                ongoing support — we&apos;re here to make it happen.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col gap-3 lg:col-span-4 lg:items-end">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-base text-brand-700 bg-white rounded-full hover:bg-brand-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-paper-50 px-8 py-4 font-body text-base font-semibold text-ink-900 transition-all duration-300 hover:-translate-y-1 hover:bg-marigold-400"
                 >
-                  Start Your Project
-                  <ArrowRight className="w-4 h-4" />
+                  Start your project
+                  <ArrowUpRight className="h-4 w-4" />
                 </Link>
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center gap-2 px-8 py-4 font-display font-semibold text-base text-white/80 border border-white/20 rounded-full hover:bg-white/10 transition-all duration-300"
+                <a
+                  href="mailto:cslvanguard@gmail.com"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-paper-50/40 px-8 py-4 font-body text-base font-semibold text-paper-50 transition-all duration-300 hover:bg-paper-50/10"
                 >
-                  View Our Work
-                </Link>
+                  Email us directly
+                </a>
               </div>
             </div>
           </div>

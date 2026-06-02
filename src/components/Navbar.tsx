@@ -4,15 +4,25 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", index: "01" },
+  { href: "/about", label: "About", index: "02" },
+  { href: "/projects", label: "Work", index: "03" },
+  { href: "/blog", label: "Journal", index: "04" },
+  { href: "/contact", label: "Contact", index: "05" },
 ];
+
+function Mark() {
+  return (
+    <span className="relative flex h-9 w-9 items-center justify-center bg-ink-900 text-paper-50 transition-colors duration-300 group-hover:bg-cobalt-600">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
+        <path d="M8 1L15 14.5H1L8 1Z" fill="currentColor" />
+      </svg>
+    </span>
+  );
+}
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,95 +30,86 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
+  useEffect(() => setIsOpen(false), [pathname]);
 
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
+        initial={{ y: -90 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-white/70 backdrop-blur-xl border-b border-brand-100/40 shadow-sm"
-            : "bg-transparent"
+            ? "border-b border-paper-300 bg-paper/85 backdrop-blur-md"
+            : "border-b border-transparent bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10">
-                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-brand-500 to-brand-700 rotate-6 group-hover:rotate-12 transition-transform duration-300" />
-                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-brand-400 to-brand-600 flex items-center justify-center">
-                  <span className="text-white font-display font-bold text-lg">
-                    C
-                  </span>
-                </div>
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight">
-                <span className="text-midnight-900">CSL</span>{" "}
-                <span className="gradient-text">Vanguard</span>
+        <nav className="mx-auto max-w-[88rem] px-6 lg:px-10">
+          <div className="flex h-20 items-center justify-between">
+            <Link href="/" className="group flex items-center gap-3">
+              <Mark />
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-lg font-semibold tracking-tight text-ink-900">
+                  CSL Vanguard
+                </span>
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-ink-500">
+                  Web Studio
+                </span>
               </span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative px-4 py-2 font-display text-sm font-medium rounded-full transition-all duration-300 ${
-                    pathname === link.href
-                      ? "text-brand-600"
-                      : "text-midnight-900/60 hover:text-midnight-900"
-                  }`}
-                >
-                  {pathname === link.href && (
-                    <motion.div
-                      layoutId="navbar-active"
-                      className="absolute inset-0 bg-brand-50 rounded-full border border-brand-100/50"
-                      transition={{
-                        type: "spring",
-                        stiffness: 350,
-                        damping: 30,
-                      }}
+            <div className="hidden items-center gap-9 md:flex">
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="group relative py-1 font-body text-sm font-medium"
+                  >
+                    <span
+                      className={`transition-colors duration-300 ${
+                        active
+                          ? "text-ink-900"
+                          : "text-ink-500 group-hover:text-ink-900"
+                      }`}
+                    >
+                      {link.label}
+                    </span>
+                    <span
+                      className={`absolute -bottom-0.5 left-0 h-px bg-cobalt-600 transition-all duration-300 ${
+                        active ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
                     />
-                  )}
-                  <span className="relative z-10">{link.label}</span>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
 
-            {/* CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:block">
               <Link href="/contact" className="btn-primary text-sm">
-                <span className="relative z-10 flex items-center gap-2">
-                  Get Started
-                  <ArrowRight className="w-4 h-4" />
-                </span>
+                Start a project
+                <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-brand-50 text-brand-600"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-label="Toggle menu"
+              className="flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 md:hidden"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </nav>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -118,47 +119,51 @@ export default function Navbar() {
             className="fixed inset-0 z-40 md:hidden"
           >
             <div
-              className="absolute inset-0 bg-midnight-900/20 backdrop-blur-sm"
+              className="absolute inset-0 bg-ink-900/30 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 250 }}
-              className="absolute right-0 top-0 bottom-0 w-80 bg-white/95 backdrop-blur-xl shadow-2xl p-8 pt-24"
+              transition={{ type: "spring", damping: 28, stiffness: 260 }}
+              className="absolute right-0 top-0 bottom-0 w-[78%] max-w-sm bg-paper-50 p-8 pt-24 shadow-2xl"
             >
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
+                    transition={{ delay: 0.08 + i * 0.06 }}
                   >
                     <Link
                       href={link.href}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl font-display text-base font-medium transition-all ${
-                        pathname === link.href
-                          ? "text-brand-600 bg-brand-50"
-                          : "text-midnight-900/70 hover:bg-surface-100"
+                      className={`flex items-baseline gap-4 border-b border-paper-300 py-4 ${
+                        pathname === link.href ? "text-cobalt-600" : "text-ink-900"
                       }`}
                     >
-                      {link.label}
+                      <span className="font-mono text-xs text-ink-400">
+                        {link.index}
+                      </span>
+                      <span className="font-display text-2xl font-medium">
+                        {link.label}
+                      </span>
                     </Link>
                   </motion.div>
                 ))}
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 24 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="mt-6"
+                  transition={{ delay: 0.5 }}
+                  className="mt-8"
                 >
-                  <Link href="/contact" className="btn-primary w-full justify-center text-sm">
-                    <span className="relative z-10 flex items-center gap-2">
-                      Get Started
-                      <ArrowRight className="w-4 h-4" />
-                    </span>
+                  <Link
+                    href="/contact"
+                    className="btn-primary w-full justify-center text-sm"
+                  >
+                    Start a project
+                    <ArrowUpRight className="h-4 w-4" />
                   </Link>
                 </motion.div>
               </div>

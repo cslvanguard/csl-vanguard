@@ -4,171 +4,144 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
 import { blogPosts, categories } from "@/lib/blog-data";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
 import Link from "next/link";
 
 export default function BlogPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [active, setActive] = useState("All");
 
-  const filteredPosts =
-    activeCategory === "All"
+  const filtered =
+    active === "All"
       ? blogPosts
-      : blogPosts.filter((p) => p.category === activeCategory);
+      : blogPosts.filter((p) => p.category === active);
+
+  const featured = blogPosts[0];
 
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-mesh" />
-        <div className="absolute inset-0 grid-pattern" />
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <AnimatedSection className="max-w-3xl">
-            <span className="section-badge mb-6 inline-flex">Blog</span>
-            <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl tracking-tight mb-8">
-              Thoughts &{" "}
-              <span className="gradient-text">insights</span>
+      <section className="relative overflow-hidden pt-36 pb-12 lg:pt-44">
+        <div className="absolute inset-0 grid-lines opacity-60" aria-hidden />
+        <div className="relative mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection>
+            <span className="eyebrow mb-6">The journal</span>
+            <h1 className="max-w-4xl font-display text-5xl font-light leading-[0.98] tracking-tight text-ink-900 sm:text-6xl lg:text-7xl">
+              Notes on building a{" "}
+              <span className="italic text-cobalt-600">better</span> web.
             </h1>
-            <p className="text-xl text-midnight-900/50 leading-relaxed">
-              Ideas on web development, design, security, marketing, and the
-              occasional deep dive into what makes great technology tick.
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-600 text-pretty">
+              Practical thinking on web development, design, security, and
+              marketing — plus the occasional deep dive into what makes good
+              technology tick.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Blog Content */}
-      <section className="relative py-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          {/* Category Filter */}
-          <AnimatedSection className="mb-12">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`px-5 py-2.5 rounded-full font-display text-sm font-medium transition-all duration-300 ${
-                    activeCategory === cat
-                      ? "bg-brand-600 text-white shadow-glow"
-                      : "bg-white text-midnight-900/50 border border-brand-100 hover:border-brand-300 hover:text-brand-600"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          {/* Featured Post */}
-          {activeCategory === "All" && (
-            <AnimatedSection className="mb-12">
-              <Link href={`/blog/${blogPosts[0].slug}`}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  className="glass-card rounded-2xl overflow-hidden group"
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-                    <div
-                      className={`h-64 lg:h-auto bg-linear-to-br ${blogPosts[0].color} flex items-center justify-center`}
-                    >
-                      <div className="text-white/20 font-display font-bold text-[10rem] leading-none select-none">
-                        V
-                      </div>
-                    </div>
-                    <div className="p-10">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="px-3 py-1 text-xs font-display font-semibold bg-brand-50 text-brand-600 rounded-full">
-                          {blogPosts[0].category}
-                        </span>
-                        <span className="text-xs text-midnight-900/40 flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {blogPosts[0].readTime}
-                        </span>
-                      </div>
-                      <h2 className="font-display font-bold text-2xl sm:text-3xl mb-4 group-hover:text-brand-600 transition-colors">
-                        {blogPosts[0].title}
-                      </h2>
-                      <p className="text-midnight-900/50 leading-relaxed mb-6">
-                        {blogPosts[0].excerpt}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-sm text-midnight-900/40">
-                          <div className="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center">
-                            <span className="text-xs font-display font-bold text-brand-600">
-                              {blogPosts[0].authorInitial}
-                            </span>
-                          </div>
-                          {blogPosts[0].date}
-                        </div>
-                        <span className="inline-flex items-center gap-1.5 text-sm font-display font-semibold text-brand-600 group-hover:gap-3 transition-all">
-                          Read article
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </div>
-                    </div>
+      {/* Featured */}
+      {active === "All" && (
+        <section className="relative py-8">
+          <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+            <AnimatedSection>
+              <Link
+                href={`/blog/${featured.slug}`}
+                className="group grid grid-cols-1 overflow-hidden border border-ink-900/15 bg-paper-50 lg:grid-cols-12"
+              >
+                <div className="flex items-center justify-center bg-ink-900 p-12 lg:col-span-5">
+                  <span className="font-display text-[10rem] font-light leading-none text-paper-100/10 transition-colors duration-500 group-hover:text-cobalt-400">
+                    01
+                  </span>
+                </div>
+                <div className="p-8 sm:p-12 lg:col-span-7">
+                  <div className="flex items-center gap-4">
+                    <span className="border border-cobalt-600/30 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-cobalt-600">
+                      {featured.category}
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-wider text-ink-500">
+                      <Clock className="h-3 w-3" />
+                      {featured.readTime}
+                    </span>
                   </div>
-                </motion.div>
+                  <h2 className="mt-6 font-display text-3xl font-normal leading-tight tracking-tight text-ink-900 transition-colors group-hover:text-cobalt-600 sm:text-4xl">
+                    {featured.title}
+                  </h2>
+                  <p className="mt-4 max-w-xl text-ink-600 leading-relaxed">
+                    {featured.excerpt}
+                  </p>
+                  <div className="mt-8 flex items-center justify-between border-t border-paper-300 pt-5">
+                    <span className="font-mono text-xs uppercase tracking-wider text-ink-500">
+                      {featured.date}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-ink-900">
+                      Read article
+                      <ArrowUpRight className="h-4 w-4 text-cobalt-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </span>
+                  </div>
+                </div>
               </Link>
             </AnimatedSection>
-          )}
+          </div>
+        </section>
+      )}
 
-          {/* Post Grid */}
+      {/* Filter + grid */}
+      <section className="relative py-12 lg:py-16">
+        <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+          <AnimatedSection className="mb-10 flex flex-wrap gap-2 border-y border-ink-900/15 py-5">
+            {categories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setActive(c)}
+                className={`rounded-full px-5 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-300 ${
+                  active === c
+                    ? "bg-ink-900 text-paper-50"
+                    : "border border-ink-900/20 text-ink-500 hover:border-ink-900 hover:text-ink-900"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </AnimatedSection>
+
           <motion.div
             layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 gap-px overflow-hidden border border-ink-900/15 bg-ink-900/15 md:grid-cols-2 lg:grid-cols-3"
           >
             <AnimatePresence mode="popLayout">
-              {(activeCategory === "All"
-                ? filteredPosts.slice(1)
-                : filteredPosts
-              ).map((post) => (
+              {(active === "All" ? filtered.slice(1) : filtered).map((post) => (
                 <motion.div
                   key={post.slug}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{ duration: 0.35 }}
                 >
-                  <Link href={`/blog/${post.slug}`}>
-                    <motion.article
-                      whileHover={{ y: -4 }}
-                      className="glass-card rounded-2xl overflow-hidden h-full group flex flex-col"
-                    >
-                      <div
-                        className={`h-40 bg-linear-to-br ${post.color} flex items-center justify-center`}
-                      >
-                        <div className="text-white/15 font-display font-bold text-8xl leading-none select-none">
-                          {post.title[0]}
-                        </div>
-                      </div>
-                      <div className="p-6 flex flex-col flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <span className="px-2.5 py-0.5 text-xs font-display font-semibold bg-brand-50 text-brand-600 rounded-full">
-                            {post.category}
-                          </span>
-                          <span className="text-xs text-midnight-900/40 flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                        <h3 className="font-display font-bold text-lg mb-3 group-hover:text-brand-600 transition-colors">
-                          {post.title}
-                        </h3>
-                        <p className="text-sm text-midnight-900/50 leading-relaxed flex-1 mb-4">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs text-midnight-900/40">
-                            {post.date}
-                          </span>
-                          <span className="inline-flex items-center gap-1 text-sm font-display font-semibold text-brand-600 group-hover:gap-2 transition-all">
-                            Read
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </span>
-                        </div>
-                      </div>
-                    </motion.article>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="group flex h-full flex-col bg-paper p-7 transition-colors duration-500 hover:bg-paper-50"
+                  >
+                    <div className="mb-6 flex items-center gap-3">
+                      <span className="border border-cobalt-600/30 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cobalt-600">
+                        {post.category}
+                      </span>
+                      <span className="inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-ink-500">
+                        <Clock className="h-3 w-3" />
+                        {post.readTime}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-xl font-medium leading-snug text-ink-900 transition-colors group-hover:text-cobalt-600">
+                      {post.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-600">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-6 flex items-center justify-between border-t border-paper-300 pt-4">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-ink-500">
+                        {post.date}
+                      </span>
+                      <ArrowUpRight className="h-4 w-4 text-cobalt-600 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                    </div>
                   </Link>
                 </motion.div>
               ))}

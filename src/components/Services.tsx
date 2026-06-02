@@ -1,126 +1,136 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import {
-  Globe,
-  Wrench,
-  Puzzle,
-  Shield,
-  Megaphone,
-  Server,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const services = [
   {
-    icon: Globe,
+    index: "01",
     title: "Custom Websites",
     description:
-      "Bespoke web solutions built from the ground up. Pixel-perfect designs, blazing-fast performance, and experiences your users will remember.",
-    color: "from-violet-500 to-purple-600",
-    bgColor: "bg-violet-50",
-    iconColor: "text-violet-600",
+      "Designed and coded from scratch to fit your brand — fast, responsive, and genuinely yours. No drag-and-drop templates, no recycled themes.",
+    tags: ["Design", "Next.js", "Responsive"],
   },
   {
-    icon: Wrench,
+    index: "02",
     title: "Fix & Improve",
     description:
-      "Revitalize your existing site. We diagnose issues, optimize performance, update outdated code, and breathe new life into your web presence.",
-    color: "from-blue-500 to-indigo-600",
-    bgColor: "bg-blue-50",
-    iconColor: "text-blue-600",
+      "Inherited a slow, broken, or outdated site? We diagnose, repair, and modernise on the stack you already have — often within hours, not weeks.",
+    tags: ["Rescue", "Performance", "Bugs"],
   },
   {
-    icon: Puzzle,
+    index: "03",
     title: "Custom Components",
     description:
-      "Need something specific? We build reusable, high-quality UI components that integrate seamlessly into your existing architecture.",
-    color: "from-indigo-500 to-violet-600",
-    bgColor: "bg-indigo-50",
-    iconColor: "text-indigo-600",
+      "Need one specific piece — a booking widget, a calculator, an animation? We build accessible, reusable components that drop into your existing site.",
+    tags: ["UI", "Accessibility", "Reusable"],
   },
   {
-    icon: Shield,
-    title: "Web Security",
-    description:
-      "Protect your digital assets. From vulnerability audits to implementation of robust security measures, we keep your site and data safe.",
-    color: "from-emerald-500 to-teal-600",
-    bgColor: "bg-emerald-50",
-    iconColor: "text-emerald-600",
-  },
-  {
-    icon: Megaphone,
+    index: "04",
     title: "Online Marketing",
     description:
-      "Drive growth with data-driven SEO, targeted campaigns, and strategic content that connects you with the right audience at the right time.",
-    color: "from-amber-500 to-orange-600",
-    bgColor: "bg-amber-50",
-    iconColor: "text-amber-600",
+      "Being online isn't enough if no one finds you. We handle SEO, content, and targeted campaigns that bring the right people to your door.",
+    tags: ["SEO", "Content", "Campaigns"],
   },
   {
-    icon: Server,
+    index: "05",
     title: "Web Hosting",
     description:
-      "Reliable, lightning-fast hosting built for modern websites. 99.9% uptime, automatic scaling, and infrastructure you can count on.",
-    color: "from-rose-500 to-pink-600",
-    bgColor: "bg-rose-50",
-    iconColor: "text-rose-600",
+      "Reliable, secure hosting with the boring parts handled — backups, SSL, uptime, and updates — so your site simply stays online and quick.",
+    tags: ["Uptime", "SSL", "Backups"],
   },
 ];
 
 export default function Services() {
+  const [active, setActive] = useState<number | null>(null);
+
   return (
-    <section className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-40" />
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <AnimatedSection className="text-center mb-20">
-          <span className="section-badge mb-6 inline-flex">What We Do</span>
-          <h2 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6">
-            Services that{" "}
-            <span className="gradient-text">move the needle</span>
-          </h2>
-          <p className="text-lg text-midnight-900/50 max-w-2xl mx-auto">
-            End-to-end web solutions designed to elevate your business. Every
-            service is crafted with precision and delivered with care.
+    <section className="relative py-24 lg:py-32">
+      <div className="mx-auto max-w-[88rem] px-6 lg:px-10">
+        <AnimatedSection className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <span className="eyebrow mb-5">What we do</span>
+            <h2 className="font-display text-4xl font-light leading-[1.02] tracking-tight text-ink-900 sm:text-5xl lg:text-6xl">
+              Five ways we put
+              <br />
+              you <span className="italic text-cobalt-600">online</span> — and
+              ahead.
+            </h2>
+          </div>
+          <p className="text-ink-600 lg:col-span-4">
+            Whether you&apos;re starting from nothing or salvaging something that
+            broke, there&apos;s a path here for you. Pick one — or let us
+            recommend the right mix.
           </p>
         </AnimatedSection>
 
-        {/* Service Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <AnimatedSection key={service.title} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3 }}
-                className="group relative glass-card rounded-2xl p-8 h-full"
+        <div className="border-t border-ink-900/15">
+          {services.map((s, i) => (
+            <AnimatedSection key={s.title} delay={i * 0.06}>
+              <Link
+                href="/contact"
+                onMouseEnter={() => setActive(i)}
+                onMouseLeave={() => setActive(null)}
+                className="group relative block border-b border-ink-900/15"
               >
-                {/* Gradient border on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-linear-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl p-px" />
-
                 <div
-                  className={`w-14 h-14 rounded-2xl ${service.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <service.icon className={`w-7 h-7 ${service.iconColor}`} />
+                  className={`absolute inset-0 origin-left bg-ink-900 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    active === i ? "scale-x-100" : "scale-x-0"
+                  }`}
+                  aria-hidden
+                />
+                <div className="relative grid grid-cols-1 items-start gap-4 py-8 transition-colors duration-500 md:grid-cols-12 md:items-center md:gap-6 md:py-10">
+                  <span
+                    className={`font-mono text-sm transition-colors duration-300 md:col-span-1 ${
+                      active === i ? "text-marigold-400" : "text-ink-400"
+                    }`}
+                  >
+                    {s.index}
+                  </span>
+
+                  <h3
+                    className={`font-display text-3xl font-normal tracking-tight transition-all duration-300 md:col-span-4 md:text-4xl ${
+                      active === i
+                        ? "translate-x-2 text-paper-50"
+                        : "text-ink-900"
+                    }`}
+                  >
+                    {s.title}
+                  </h3>
+
+                  <p
+                    className={`max-w-xl text-sm leading-relaxed transition-colors duration-300 md:col-span-5 ${
+                      active === i ? "text-paper-200" : "text-ink-600"
+                    }`}
+                  >
+                    {s.description}
+                  </p>
+
+                  <div className="flex items-center justify-between md:col-span-2 md:justify-end md:gap-4">
+                    <div className="flex flex-wrap gap-2">
+                      {s.tags.map((t) => (
+                        <span
+                          key={t}
+                          className={`font-mono text-[10px] uppercase tracking-wider transition-colors duration-300 ${
+                            active === i ? "text-paper-300" : "text-ink-400"
+                          }`}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <ArrowUpRight
+                      className={`h-6 w-6 shrink-0 transition-all duration-300 ${
+                        active === i
+                          ? "rotate-0 text-marigold-400"
+                          : "-rotate-45 text-ink-400"
+                      }`}
+                    />
+                  </div>
                 </div>
-
-                <h3 className="font-display font-bold text-xl mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-midnight-900/50 text-sm leading-relaxed mb-6">
-                  {service.description}
-                </p>
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 text-sm font-display font-semibold text-brand-600 group-hover:gap-3 transition-all duration-300"
-                >
-                  Learn more
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </motion.div>
+              </Link>
             </AnimatedSection>
           ))}
         </div>
