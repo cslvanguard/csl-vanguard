@@ -23,30 +23,6 @@ type Project = {
 const projects: Project[] = [
   {
     index: "01",
-    title: "Mead Memorial Chapel",
-    kind: "Built from scratch",
-    group: "Built from scratch",
-    description:
-      "A public platform giving unbiased updates on an ongoing legal dispute — blog, petition signup, document archive, and historical background, built for clarity and reach.",
-    tags: ["Next.js", "CMS", "SEO", "Accessibility"],
-    metric: "1k+",
-    metricLabel: "Monthly visitors",
-    link: "https://meadmemorialchapel.net/",
-  },
-  {
-    index: "02",
-    title: "Malmi Aluthge",
-    kind: "Built from scratch",
-    group: "Built from scratch",
-    description:
-      "A clean, personal portfolio site built to present work simply and load instantly, with a tailored layout and smooth, considered motion.",
-    tags: ["React", "Tailwind", "Netlify"],
-    metric: "100%",
-    metricLabel: "Custom built",
-    link: "https://malmi-aluthge.netlify.app/",
-  },
-  {
-    index: "03",
     title: "Sajana W — Portfolio",
     kind: "Built from scratch",
     group: "Built from scratch",
@@ -58,7 +34,7 @@ const projects: Project[] = [
     link: "https://sajanaw.com/",
   },
   {
-    index: "04",
+    index: "02",
     title: "Lijith W — Portfolio",
     kind: "Built from scratch",
     group: "Built from scratch",
@@ -70,7 +46,7 @@ const projects: Project[] = [
     link: "https://lijithw.com/",
   },
   {
-    index: "05",
+    index: "03",
     title: "Hyannis Rotary",
     kind: "Improved & fixed",
     group: "Fixed & improved",
@@ -82,7 +58,7 @@ const projects: Project[] = [
     link: "https://hyannisrotary.org/",
   },
   {
-    index: "06",
+    index: "04",
     title: "Centerville Historical Museum",
     kind: "Fixed & supported",
     group: "Fixed & improved",
@@ -92,6 +68,30 @@ const projects: Project[] = [
     metric: "<1hr",
     metricLabel: "Critical fix turnaround",
     link: "https://www.centervillehistoricalmuseum.org/",
+  },
+  {
+    index: "05",
+    title: "Mead Memorial Chapel",
+    kind: "Built from scratch",
+    group: "Built from scratch",
+    description:
+      "A public platform giving unbiased updates on an ongoing legal dispute — blog, petition signup, document archive, and historical background, built for clarity and reach.",
+    tags: ["Next.js", "CMS", "SEO", "Accessibility"],
+    metric: "1k+",
+    metricLabel: "Monthly visitors",
+    link: "https://meadmemorialchapel.net/",
+  },
+  {
+    index: "06",
+    title: "Malmi Aluthge",
+    kind: "Built from scratch",
+    group: "Built from scratch",
+    description:
+      "A clean, personal portfolio site built to present work simply and load instantly, with a tailored layout and smooth, considered motion.",
+    tags: ["React", "Tailwind", "Netlify"],
+    metric: "100%",
+    metricLabel: "Custom built",
+    link: "https://malmi-aluthge.netlify.app/",
   },
 ];
 
