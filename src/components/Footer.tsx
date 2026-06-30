@@ -62,11 +62,11 @@ export default function Footer() {
               </p>
               <div className="mt-8 flex flex-col gap-3 text-sm">
                 <a
-                  href="mailto:customersupport@cslvanguard.com"
+                  href="mailto:hello@cslvanguard.com"
                   className="inline-flex items-center gap-3 text-paper-100/60 transition-colors hover:text-marigold-400"
                 >
                   <Mail className="h-4 w-4" />
-                  customersupport@cslvanguard.com
+                  hello@cslvanguard.com
                 </a>
                 <a
                   href="tel:+14015927299"

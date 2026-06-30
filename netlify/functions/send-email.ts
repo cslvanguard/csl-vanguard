@@ -14,8 +14,8 @@ const handler: Handler = async (event) => {
     );
 
     const { data, error } = await resend.emails.send({
-      from: "CSL Vanguard <customersupport@cslvanguard.com>", // change after verifying your domain
-      to: "customersupport@cslvanguard.com",
+      from: "Potential CSL Vanguard Client <hello@cslvanguard.com>", // change after verifying your domain
+      to: "hello@cslvanguard.com",
       subject: `New Contact Form Submission from ${name}`,
       replyTo: email,
       html: `

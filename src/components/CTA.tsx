@@ -45,7 +45,7 @@ export default function CTA() {
                   <ArrowUpRight className="h-4 w-4" />
                 </Link>
                 <a
-                  href="mailto:cslvanguard@gmail.com"
+                  href="mailto:hello@cslvanguard.com"
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-paper-50/40 px-8 py-4 font-body text-base font-semibold text-paper-50 transition-all duration-300 hover:bg-paper-50/10"
                 >
                   Email us directly

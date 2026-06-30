@@ -16,8 +16,8 @@ const contactMethods = [
   {
     icon: Mail,
     title: "Email",
-    value: "customersupport@cslvanguard.com",
-    link: "mailto:customersupport@cslvanguard.com",
+    value: "hello@cslvanguard.com",
+    link: "mailto:hello@cslvanguard.com",
     description: "We reply within 24 hours",
   },
   {
@@ -362,10 +362,10 @@ export default function ContactPage() {
                       Prefer email? Reach us directly any time.
                     </p>
                     <a
-                      href="mailto:customersupport@cslvanguard.com"
+                      href="mailto:hello@cslvanguard.com"
                       className="mt-3 inline-flex items-center gap-1.5 font-body text-sm font-semibold"
                     >
-                      customersupport@cslvanguard.com
+                      hello@cslvanguard.com
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                   </div>
