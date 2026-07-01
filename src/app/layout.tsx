@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     apple: "/csl-vanguard-icon-192.png",
   },
   manifest: "/site.webmanifest",
+  verification: {
+    other: { "msvalidate.01": "A5D79BE6A5A1DF82A85A2BF6A4E23F5A" },
+  },
 };
 
 const organizationSchema = {
