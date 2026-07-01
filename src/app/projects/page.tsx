@@ -28,7 +28,7 @@ const projects: Project[] = [
     group: "Built from scratch",
     description:
       "A fully custom engineering portfolio showcasing projects and writing. Modern stack, fast performance, and a crisp, confident interface.",
-    tags: ["Next.js", "React", "Tailwind", "Vercel"],
+    tags: ["Next.js", "Portfolio", "Motion", "Performance"],
     metric: "100%",
     metricLabel: "Custom built",
     link: "https://sajanaw.com/",
@@ -40,7 +40,7 @@ const projects: Project[] = [
     group: "Built from scratch",
     description:
       "A personal portfolio for the co-founder focused on simplicity, clarity, and professional presentation — responsive and performance-optimised throughout.",
-    tags: ["Next.js", "React", "Tailwind", "Vercel"],
+    tags: ["Next.js", "Personal brand", "Responsive", "Clean UI"],
     metric: "100%",
     metricLabel: "Custom built",
     link: "https://lijithw.com/",
@@ -51,8 +51,8 @@ const projects: Project[] = [
     kind: "Improved & fixed",
     group: "Fixed & improved",
     description:
-      "A full redesign and modernisation on the club's existing tech stack — improved UI, streamlined workflows, tighter security, and support for outreach.",
-    tags: ["Redesign", "Security", "UX", "Existing stack"],
+      "A full redesign and modernisation on the club's ClubRunner platform — improved UI, streamlined workflows, tighter security, and support for outreach.",
+    tags: ["ClubRunner", "Redesign", "Security", "UX"],
     metric: "70%",
     metricLabel: "Efficiency boost",
     link: "https://hyannisrotary.org/",
@@ -63,8 +63,8 @@ const projects: Project[] = [
     kind: "Fixed & supported",
     group: "Fixed & improved",
     description:
-      "Cost-efficient IT and web support for a nonprofit — hardware restoration, device reconfiguration, and a broken PayPal integration fixed within the hour to restore donations.",
-    tags: ["IT Support", "Payments", "Troubleshooting"],
+      "Cost-efficient IT and web support for a nonprofit — hardware restoration, device reconfiguration, and a broken PayPal integration on their Wix site fixed within the hour to restore donations.",
+    tags: ["Wix", "IT Support", "Payments", "Troubleshooting"],
     metric: "<1hr",
     metricLabel: "Critical fix turnaround",
     link: "https://www.centervillehistoricalmuseum.org/",
@@ -76,22 +76,22 @@ const projects: Project[] = [
     group: "Built from scratch",
     description:
       "A public platform giving unbiased updates on an ongoing legal dispute — blog, petition signup, document archive, and historical background, built for clarity and reach.",
-    tags: ["Next.js", "CMS", "SEO", "Accessibility"],
+    tags: ["Next.js", "Advocacy", "Document archive", "SEO"],
     metric: "1k+",
     metricLabel: "Monthly visitors",
     link: "https://meadmemorialchapel.net/",
   },
   {
     index: "06",
-    title: "Malmi Aluthge",
+    title: "Tom Keane — Town Councilor",
     kind: "Built from scratch",
     group: "Built from scratch",
     description:
-      "A clean, personal portfolio site built to present work simply and load instantly, with a tailored layout and smooth, considered motion.",
-    tags: ["React", "Tailwind", "Netlify"],
+      "A constituent-communication platform for a Barnstable Town Councilor: monthly newsletter, Zoom office hours, and direct contact — built for transparency and instant load. “One short email a month. No noise.”",
+    tags: ["Next.js", "Constant Contact", "Zoom", "Newsletter"],
     metric: "100%",
     metricLabel: "Custom built",
-    link: "https://malmi-aluthge.netlify.app/",
+    link: "https://tomkeane.com/",
   },
 ];
 
