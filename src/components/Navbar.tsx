@@ -14,16 +14,6 @@ const navLinks = [
   { href: "/contact", label: "Contact", index: "05" },
 ];
 
-function Mark() {
-  return (
-    <span className="relative flex h-9 w-9 items-center justify-center bg-ink-900 text-paper-50 transition-colors duration-300 group-hover:bg-cobalt-600">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
-        <path d="M8 1L15 14.5H1L8 1Z" fill="currentColor" />
-      </svg>
-    </span>
-  );
-}
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,19 +42,15 @@ export default function Navbar() {
       >
         <nav className="mx-auto max-w-352 px-6 lg:px-10">
           <div className="flex h-20 items-center justify-between">
-            <Link href="/" className="group flex items-center gap-3">
-              <Mark />
-              <span className="flex flex-col leading-none">
-                <span className="font-display text-lg font-semibold tracking-tight text-ink-900">
-                  CSL Vanguard
-                </span>
-                <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-ink-500">
-                  Web Studio
-                </span>
-              </span>
+            <Link href="/" className="group flex items-center">
+              <img
+                src="/csl-vanguard-logo.svg"
+                alt="CSL Vanguard — Web Studio"
+                className="h-11 w-auto"
+              />
             </Link>
 
-            <div className="hidden items-center gap-9 md:flex">
+            <div className="hidden items-center gap-9 lg:flex">
               {navLinks.map((link) => {
                 const active = pathname === link.href;
                 return (
@@ -92,7 +78,7 @@ export default function Navbar() {
               })}
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <Link href="/contact" className="btn-primary text-sm">
                 Start a project
                 <ArrowUpRight className="h-4 w-4" />
@@ -102,7 +88,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen((v) => !v)}
               aria-label="Toggle menu"
-              className="flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 md:hidden"
+              className="flex h-10 w-10 items-center justify-center border border-ink-900 text-ink-900 lg:hidden"
             >
               {isOpen ? (
                 <X className="h-5 w-5" />

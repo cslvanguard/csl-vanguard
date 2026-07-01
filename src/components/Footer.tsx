@@ -46,9 +46,22 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Link href="/" className="group inline-flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center bg-paper-50 text-ink-900">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 1L15 14.5H1L8 1Z" fill="currentColor" />
+                <span className="flex h-9 w-9 items-center justify-center">
+                  <svg width="30" height="22" viewBox="0 0 59 41" fill="none" aria-hidden>
+                    <path
+                      d="M0 0 L20 41 L40 0"
+                      stroke="#F3F0E8"
+                      strokeWidth="7"
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                    />
+                    <path
+                      d="M19 0 L39 41 L59 0"
+                      stroke="#4338CA"
+                      strokeWidth="7"
+                      strokeLinecap="square"
+                      strokeLinejoin="miter"
+                    />
                   </svg>
                 </span>
                 <span className="font-display text-xl font-semibold text-paper-50">

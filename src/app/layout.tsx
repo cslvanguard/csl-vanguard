@@ -48,7 +48,17 @@ export const metadata: Metadata = {
     url: "https://cslvanguard.com",
     siteName: "CSL Vanguard",
     type: "website",
+    images: [{ url: "/csl-vanguard-logo.png", alt: "CSL Vanguard" }],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/csl-vanguard-icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/csl-vanguard-icon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/csl-vanguard-icon-192.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({

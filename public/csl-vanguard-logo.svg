@@ -1,0 +1,12 @@
+<svg width="572" height="132" viewBox="52 48 572 132" xmlns="http://www.w3.org/2000/svg">
+  <!-- Double-V mark: two overlapping chevrons, black + indigo -->
+  <g transform="translate(60,55)">
+    <path d="M0 0 L42 85 L84 0" fill="none" stroke="#15130F" stroke-width="11" stroke-linecap="square" stroke-linejoin="miter"/>
+    <path d="M40 0 L82 85 L124 0" fill="none" stroke="#4338CA" stroke-width="11" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="240" y="135" font-family="Source Serif 4, Georgia, serif" font-weight="900" font-size="58" fill="#15130F">CSL <tspan font-style="italic" font-weight="400" fill="#4338CA">Vanguard</tspan></text>
+  <text x="243" y="168" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" letter-spacing="4" fill="#8A8475">WEB STUDIO</text>
+
+</svg>

@@ -81,7 +81,7 @@
 @layer components {
   /* ---- Buttons ---- */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 px-7 py-3.5 font-body font-semibold text-sm text-paper-50 rounded-full transition-all duration-300;
+    @apply relative inline-flex items-center justify-center gap-2 whitespace-nowrap px-7 py-3.5 font-body font-semibold text-sm text-paper-50 rounded-full transition-all duration-300;
     background: var(--color-ink-900);
   }
   .btn-primary:hover {
