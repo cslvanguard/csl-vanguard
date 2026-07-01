@@ -4,6 +4,7 @@ import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -50,6 +51,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "/csl-vanguard-logo.png", alt: "CSL Vanguard" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "CSL Vanguard — Big-agency craft, small-business budgets",
+    description:
+      "Custom websites, rescues, components, marketing, and hosting for people and small businesses.",
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -59,6 +66,36 @@ export const metadata: Metadata = {
     apple: "/csl-vanguard-icon-192.png",
   },
   manifest: "/site.webmanifest",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CSL Vanguard",
+  url: "https://cslvanguard.com",
+  logo: "https://cslvanguard.com/csl-vanguard-logo.png",
+  description:
+    "Independent, remote-first web studio building, fixing, and growing websites for individuals and small businesses.",
+  email: "hello@cslvanguard.com",
+  telephone: "+1-401-592-7299",
+  foundingDate: "2024",
+  sameAs: [
+    "https://www.linkedin.com/in/sajana-wijesinghe",
+    "https://www.linkedin.com/in/lijith-wijesinghe/",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "hello@cslvanguard.com",
+    telephone: "+1-401-592-7299",
+    contactType: "customer service",
+  },
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CSL Vanguard",
+  url: "https://cslvanguard.com",
 };
 
 export default function RootLayout({
@@ -73,6 +110,8 @@ export default function RootLayout({
       className={`${fraunces.variable} ${hanken.variable} ${jetbrains.variable}`}
     >
       <body className="font-body antialiased bg-paper text-ink overflow-x-hidden">
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
         <div className="grain" aria-hidden />
         <Navbar />
         <main className="relative">{children}</main>
